@@ -34,7 +34,8 @@ h4 {
 
 .pst-hero {
   position: relative;
-  background-image: url(../images/bg-1.jpg);
+  /*background-image: url(../images/bg-1.jpg);*/
+  background-color: #bbb;
   background-size: cover;
   color: #fff;
   display: flex;
@@ -54,7 +55,7 @@ h4 {
   left: 0;
   height: 100%;
   width: 100%;
-  background: rgba(0,0,0,.325);
+  background: rgba(10,10,20,.35);
   z-index: -1;
 }
 
@@ -78,26 +79,35 @@ h4 {
   font-size: 16px;
   position: fixed;
   width: 100%;
-  top: 20px;
-  left: 20px;
+  top: 0;
+  left: 0px;
+  padding: 20px 20px;
+  box-sizing: border-box;
   z-index: 2000;
   color: #fff;
+  font-size: 14px;
 }
 
 .pst-navbar__nav {
-  position: absolute;
-  right: 200px;
+  float: right;
   display: block;
-  font-size: 14px;
-  margin-top: 0;
   font-weight: 500;
+  padding-right: 20px;
+}
+
+.pst-navbar a {
+  color: inherit;
+  display: inline-block;
+  margin-left: 1em;
+  line-height: 1;
+  text-decoration: none;
 }
 
 .pst-logo {
-  font-size: 14px;
   letter-spacing: .15em;
-  float: left;
-  width: 50%;
+  line-height: 1;
+  font-weight: 900;
+  padding-bottom: 0;
 }
 
 #canvas {
@@ -109,6 +119,15 @@ h4 {
   z-index: 1;
 }
 
+.pst-section {
+  box-sizing: border-box;
+  padding: 2em 2em 4em;
+}
+
+.pst-col--turqoise {
+  background: #2CB294;
+}
+
 @media screen and (min-width:980px) {
   .pst-flex--row-container {
     display: flex;
@@ -116,13 +135,12 @@ h4 {
 
   .pst-col--50 {
     width: 50%;
-    min-height: 100vh;
+    min-height: 50vh;
   }
-}
 
-.pst-section {
-  box-sizing: border-box;
-  padding: 8em 10em;
+  .pst-section {
+    padding: 8em 8em 10em;
+  }
 }
 
 .pst-section__text {
@@ -133,11 +151,12 @@ h4 {
 .pst-section__title {
   font-size: 48px;
   font-weight: 800;
+  color: #2CB294;
 }
+
 
 .pst-founders-section {
   border-right: 1px solid #f3f3f3;
-  border-bottom: 1px solid #f3f3f3;
 }
 
 .pst-founders-section .pst-section__title {
@@ -145,7 +164,6 @@ h4 {
 }
 
 .pst-what-section {
-  border-bottom: 1px solid #f3f3f3;
 }
 
 .pst-what-section .pst-section__title {
@@ -153,7 +171,8 @@ h4 {
 }
 
 .pst-contact-section {
-  text-align: center;
+  border-top: 1px solid #f3f3f3;
+  /*text-align: center;*/
 }
 
 /* colors */

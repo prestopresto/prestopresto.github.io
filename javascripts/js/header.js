@@ -207,8 +207,8 @@ function Header() {
           ctx.fillStyle = 'rgba('+FILL_COLORS[p.fillColorIdx-1]+', '+op+')';
           //ctx.fillStyle = 'rgba(0, 0, 10,'+0+')';
           //ctx.strokeStyle = 'rgba(200, 10, 50, '+0.1+')';
-          ctx.strokeStyle = 'rgba(255, 255, 255, .15)';
-          ctx.stroke();
+          //ctx.strokeStyle = 'rgba(255, 255, 255, .009)';
+          //ctx.stroke();
           ctx.fill();
     }
 

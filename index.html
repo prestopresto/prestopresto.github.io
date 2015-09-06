@@ -4,12 +4,29 @@
   <title>presto - a design &amp; development company</title>
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
   <link rel="stylesheet" type="text/css" href="css/presto-a.css">
+  <script type="text/javascript">
+  WebFontConfig = { fontdeck: { id: '59607' } };
+
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+    '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+  </script>
 </head>
 
 <body>
 
   <div class="pst-navbar">
-    <h1 class="pst-logo">Presto</h1>
+    <a class="pst-logo">Presto</a>
+    <nav class="pst-navbar__nav">
+      <a href="#company">company</a>
+      <a href="#contacts">contacts</a>
+    </nav>
   </div>
 
   <div class="pst-root">   
@@ -22,7 +39,7 @@
 
     </section>
 
-    <div class="pst-flex--row-container">
+    <div class="pst-flex--row-container" id="company">
       <section class="pst-col--50 pst-section pst-founders-section">
         <h2 class="pst-section__title">Who we are</h2><br/>
         <p class="pst-section__text">
@@ -41,20 +58,24 @@
           Design &amp; develop digital products.
           We help brands to build apps and websites that deliver a meaningful
           experiences for their users.<br/>
-          We're specialized in brand identities, front-end development and strategy.
+          We're specialized in brand identities, interface design, front-end development and strategy.
         </p>
       </section>
     </div>
 
-    <section class="pst-section pst-contact-section">
-      <h2 class="pst-section__title">work@prestopresto.co</h2><br/>
-      <p class="pst-section__text">
-        Work with us
-      </p>
-    </section>
+    <div class="pst-flex--row-container" id="contacts">
+      <div class="pst-col--50 pst-col--turqoise"></div>
+      <section class="pst-col--50 pst-section pst-contact-section">
+        <h2 class="pst-section__title">Enquiries</h2><br/>
+        <p class="pst-section__text">
+          work@prestopresto.co
+        </p>
+      </section>
+    </div>
 
 
 </div>
+
 <script>
 (function() {
   document.addEventListener('DOMContentLoaded', function() {
