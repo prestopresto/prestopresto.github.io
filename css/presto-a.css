@@ -1,3 +1,9 @@
+html,
+body {
+  font-family: "Apercu Regular", "Apercu", Calibri, sans-serif;
+  font-size: 13px;
+}
+
 body {
   overflow-x: hidden;
   background: #fff;
@@ -5,16 +11,11 @@ body {
   line-height: 1.65;
 }
 
-html,
-body {
-  font-family: "Apercu Regular", Calibri, sans-serif;
-}
-
 h1,
 h2,
 h3,
 h4 {
-  font-family: "Apercu Bold", Calibri, sans-serif;
+  font-family: "Apercu Bold", "Apercu", Calibri, sans-serif;
   line-height: 1.25;
 }
 
