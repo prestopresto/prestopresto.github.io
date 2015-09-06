@@ -6,19 +6,15 @@ body {
 }
 
 html,
-body,
-h1,
-h2,
-h3,
-h4 {
-  font-family: "Apercu", Calibri, sans-serif;
+body {
+  font-family: "Apercu Regular", Calibri, sans-serif;
 }
 
 h1,
 h2,
 h3,
 h4 {
-  font-family: "Apercu", Calibri, sans-serif;
+  font-family: "Apercu Bold", Calibri, sans-serif;
   line-height: 1.25;
 }
 
