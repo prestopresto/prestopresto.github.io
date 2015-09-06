@@ -1,0 +1,27 @@
+body {
+  background-color: #FFBC00;
+  color: #60BD6D;
+  background-size: contain;
+  background-position: 0 -90px;
+}
+
+.pst-root {
+  padding: 0;
+}
+
+.pst-root svg {
+  transform-origin: top left;
+  transform: scale(1.5);
+}
+
+.pst-hero {
+  text-align: left;
+  padding: 0;
+  align-items: flex-start;
+  padding: 5em 0;
+}
+
+h1.pst-logo {
+  font-size: 96px;
+  line-height: 1.5;
+}

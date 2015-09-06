@@ -1,0 +1,191 @@
+body {
+  overflow-x: hidden;
+  background: #fff;
+  padding-bottom: 0px;
+  line-height: 1.65;
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Apercu", Calibri, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Apercu", Calibri, sans-serif;
+  line-height: 1.25;
+}
+
+::selection {
+  background: #46b3a5;
+  color:#fff; /* WebKit/Blink Browsers */
+}
+
+::-moz-selection {
+  background: #46b3a5;
+  color:#fff; /* Gecko Browsers */
+}
+
+.pst-hero {
+  position: relative;
+  background-image: url(../images/bg-1.jpg);
+  background-size: cover;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 1500;
+  min-height: 100vh;
+}
+
+.pst-hero:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,.325);
+  z-index: -1;
+}
+
+.pst-hero h1 {
+  font-size: 96px;
+  font-weight: 600;
+}
+
+.pst-px {
+  /*transition: transform .25s ease-in-out;*/
+}
+
+.pst-hero h1 strong {
+}
+
+.pst-hero h1 span {
+  margin-top: 1em;
+}
+
+.pst-navbar {
+  font-size: 16px;
+  position: fixed;
+  width: 100%;
+  top: 20px;
+  left: 20px;
+  z-index: 2000;
+  color: #fff;
+}
+
+.pst-navbar__nav {
+  position: absolute;
+  right: 200px;
+  display: block;
+  font-size: 14px;
+  margin-top: 0;
+  font-weight: 500;
+}
+
+.pst-logo {
+  font-size: 14px;
+  letter-spacing: .15em;
+  float: left;
+  width: 50%;
+}
+
+#canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
+
+@media screen and (min-width:980px) {
+  .pst-flex--row-container {
+    display: flex;
+  }
+
+  .pst-col--50 {
+    width: 50%;
+    min-height: 100vh;
+  }
+}
+
+.pst-section {
+  box-sizing: border-box;
+  padding: 8em 10em;
+}
+
+.pst-section__text {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.pst-section__title {
+  font-size: 48px;
+  font-weight: 800;
+}
+
+.pst-founders-section {
+  border-right: 1px solid #f3f3f3;
+  border-bottom: 1px solid #f3f3f3;
+}
+
+.pst-founders-section .pst-section__title {
+  /*color: #BD10E0;*/
+}
+
+.pst-what-section {
+  border-bottom: 1px solid #f3f3f3;
+}
+
+.pst-what-section .pst-section__title {
+  /*color: #0054ff;*/
+}
+
+.pst-contact-section {
+  text-align: center;
+}
+
+/* colors */
+.pst-turqoise {
+  color: #2CB294;
+}
+
+.pst-purple {
+  color: #A65EE4;
+}
+
+.pst-violet {
+  color: #BD10E0;
+}
+
+.pst-red {
+  color: #DA322A;
+}
+
+.pst-blue {
+  color: #0054ff;
+}
+
+.pst-lightBlue {
+  color: #4A90E2;
+}
+
+.pst-orange {
+  color: #F9952D;
+}
+
+.pst-yellow {
+  color: #F8E71C;
+}
+
