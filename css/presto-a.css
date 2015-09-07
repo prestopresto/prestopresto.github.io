@@ -158,6 +158,7 @@ a:link {
   width: 100%;
   height: 100%;
   background-image: url(../images/wave-bg.svg);
+  background-size: 1200px;
 }
 
 .pst-col--turqoise .pst-section__title {
@@ -227,7 +228,7 @@ a:link {
   width: 100%;
   height: 100%;
   background-image: url(../images/circle-pattern-green.svg);
-  background-size: 30px;
+  background-size: 32px;
 }
 
 .pst-article-list {
