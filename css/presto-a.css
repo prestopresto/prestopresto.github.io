@@ -1,6 +1,8 @@
 html,
 body {
-  font-family: "Apercu Regular", Calibri, sans-serif;
+  font-family: "Apercu Regular", Calibri, Roboto, sans-serif;
+  font-size-adjust:0.508; 
+  font-weight:normal; 
   font-size: 13px;
 }
 
@@ -16,7 +18,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "Apercu Bold", "Apercu", Calibri, sans-serif;
+  font-family: "Apercu Bold", "Apercu Regular", Calibri, Roboto, sans-serif;
   line-height: 1.25;
 }
 
