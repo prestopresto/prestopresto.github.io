@@ -21,17 +21,22 @@ body {
 
 #waves,
 #waves-placeholder {
-  height: 180px;
-  width: 320px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 24px;
+  right: 0;
 }
+
 
 #waves-placeholder {
   position: absolute;
 }
 
 #waves {
+  /*border: 12px solid #444;*/
+  right: 0;
   /*background: yellow;*/
-  border: 12px solid #444;
   /*background: #7A59EB;*/
 }
 
@@ -62,6 +67,7 @@ body {
 .pst-contacts a {
   color: magenta;
 }
+
 @media screen and (min-width: 960px) {
   .pst-about,
   .pst-hero {
@@ -81,16 +87,18 @@ body {
   .pst-hero h1 {
     margin: 0;
     font-size: 4em;
+    margin-top: -1em;
+    margin-bottom: 1em;
+  }
+
+  .pst-hero h2 {
+
   }
 
   .pst-about {
     max-width: 960px;
     margin: 0 auto;
     align-items: flex-start;
-  }
-
-  .pst-about > section:not(:last-child) {
-    padding-right: 3em;
   }
 
 }

@@ -94,10 +94,19 @@
 <script src="javascripts/js/header.js"></script>-->
 <script src="bower_components/sine-waves/sine-waves.js"></script>
 <script>
+
   var canvasEl = document.getElementById('waves')
   var wavesEl = document.getElementById('waves-placeholder')
   var canvasW = wavesEl.offsetWidth
   var canvasH = wavesEl.offsetHeight
+  var mouseX = 1
+  var mouseY = 1
+  
+  document.addEventListener('mousemove', function(e) {
+    mouseX = e.pageX
+    mouseY = e.pageY
+  })
+
   var waves = new SineWaves({
   // Canvas Element
   el: canvasEl,
@@ -144,7 +153,8 @@
   ],
 
   // Perform any additional initializations here
-  initialize: function (){},
+  initialize: function (){
+  },
 
   // This function is called whenver the window is resized
   resizeEvent: function() {
@@ -154,12 +164,7 @@
     // gradient.addColorStop(0,"rgba(0, 0, 0, 0)");
     // gradient.addColorStop(0.5,"rgba(255, 255, 255, 0.5)");
     // gradient.addColorStop(1,"rgba(0, 0, 0, 0)");
-
-    // var index = -1;
-    // var length = this.waves.length;
-    //   while(++index < length){
-    //   this.waves[index].strokeStyle = gradient;
-    // }
+    
   }
 });
 </script>
