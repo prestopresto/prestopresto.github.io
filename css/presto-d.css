@@ -7,10 +7,13 @@ body {
 }
 
 .pst-hero {
-  padding: 2em;
+  padding: 0em;
   margin: 0 auto;
-  max-width: 560px;
   text-align: center;
+}
+
+.pst-hero__title {
+  
 }
 
 .pst-hero h2 {
@@ -19,13 +22,13 @@ body {
 }
 
 
-#waves,
-#waves-placeholder {
+#waves {
   position: absolute;
   top: 0;
   left: 0;
-  bottom: 24px;
   right: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 
@@ -87,7 +90,7 @@ body {
   .pst-hero h1 {
     margin: 0;
     font-size: 4em;
-    margin-top: -1em;
+    margin-top: -4em;
     margin-bottom: 1em;
   }
 

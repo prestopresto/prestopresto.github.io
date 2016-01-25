@@ -5,7 +5,7 @@
   <title>presto - a design &amp; development company</title>
   <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
-  <link rel="stylesheet" type="text/css" href="css/presto-d.css">
+  <link rel="stylesheet" type="text/css" href="css/presto-a.css">
   <meta name="viewport" content="initial-scale=1,width=device-width" />
   <meta name="description" content="presto - a design & development company" />
   <script type="text/javascript">
@@ -25,57 +25,130 @@
 
 <body>
 
-  <!--<div class="pst-navbar">
+  <div class="pst-navbar">
     <a class="pst-logo">Presto</a>
     <nav class="pst-navbar__nav">
       <a href="#company">company</a>
       <a href="#contacts">contacts</a>
     </nav>
-  </div>-->
-
-  <section class="pst-hero">
-    <div class="pst-hero__header">
-      <h1 class="pst-hero__title">
-        We are presto
-      </h1>
-      <h2>
-        we build digital products<br/> 
-        for the internet folks
-      </h2>
-    </div>
-    <div class="pst-hero__art">
-      <canvas id="waves"></canvas>
-      <div id="waves-placeholder"></div>
-    </div>
-  </section>
-
-  <!--<div class="pst-about" id="company">
-    <section class="pst-who">
-      <h2 class="pst-section__title">Who we are</h2>
-      <p class="pst-section__text">
-        A group of developers, designers 
-        and strategists.<br/>
-        We launched together presto in
-        late 2015 after working for several
-        years for small-mid-big companies, 
-        startups and online brands.
-      </p>
-    </section>
-
-    <section class="pst-what-section">
-      <h2 class="pst-section__title">What we do</h2>
-      <p class="pst-section__text">
-        Design &amp; develop digital products.
-        We help brands to build apps and websites that deliver a meaningful
-        experience to the user.<br/>
-        We're specialized in brand identities, interface design, front-end development and digital strategy.
-      </p>
-    </section>-->
-
-    <section class="pst-contacts">
-      <a href="mailto:work@prestopresto.co"><strong>work@prestopresto.co</strong></a>
-    </section>
   </div>
+
+  <div class="pst-root">   
+    <section class="pst-hero">
+      <!--<div class="pst-px"><canvas id="canvas"></canvas></div>-->
+      <div class="pst-svg-pattern--green" style="z-index:-1"></div>
+      <h1 class="pst-hero__title">
+        presto
+        <span>we make design &amp; development</span>
+      </h1>
+
+    </section>
+
+    <div class="pst-flex--row-container" id="company">
+      <section class="pst-col--50 pst-section pst-founders-section">
+        <h2 class="pst-section__title">Who we are</h2>
+        <p class="pst-section__text">
+          A group of developers, designers 
+          and strategists.<br/>
+          We launched together presto in
+          late 2015 after working for several
+          years for small-mid-big companies, 
+          startups and online brands.
+        </p>
+      </section>
+
+      <section class="pst-col--50 pst-section pst-what-section">
+        <h2 class="pst-section__title">What we do</h2>
+        <p class="pst-section__text">
+          Design &amp; develop digital products.
+          We help brands to build apps and websites that deliver a meaningful
+          experience to the user.<br/>
+          We're specialized in brand identities, interface design, front-end development and digital strategy.
+        </p>
+      </section>
+    </div>
+
+    <div class="pst-flex--row-container" id="contacts">
+      <div class="pst-section pst-col--50 pst-col--turqoise">
+      <div class="pst-svg-pattern"></div>
+        <h2 class="pst-section__title">a design & development<br/> company</h2><br/>
+      </div>
+      <section class="pst-col--50 pst-section pst-contact-section">
+        <h2 class="pst-section__title">Enquiries</h2><br/>
+        <p class="pst-section__text">
+          <a href="mailto:work@prestopresto.co" title="write us an email">work@prestopresto.co</a><br/>
+          <a href="http://twitter.com/wearepresto">@wearepresto</a>
+        </p>
+      </section>
+    </div>
+
+
+</div>
+
+<script>
+(function() {
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    var pxElements = document.querySelectorAll('.pst-px')
+    var moveRatio = 20
+    var mouseX = 0
+    var mouseY = 0
+    var elLength = pxElements.length
+    var i = 0
+
+    function translate(el, x, y, degX, degY) {
+      //el.style.transform = 'translate3d('+x+'px, '+y+'px, 0px)'
+      el.style.transform = 'translate3d('+x+'px, '+y+'px, 0px) rotateX('+degX+'deg) rotateY('+degY+'deg)'
+    }
+
+    function setOpacity(el, opacity) {
+      el.style.opacity = opacity
+    }
+
+    var coords = { x: 0, y: 0}
+
+    document.addEventListener('mousemove', function(ev) {
+      mouseX = ev.clientX
+      mouseY = ev.clientY
+    })
+
+    function moveChildren(elements) {
+
+    }
+
+    function animate(elements) {
+      elements || (elements = pxElements)
+      for(; i < elLength; i++) {
+        var x, y, z
+        var currentElement = pxElements[i]
+        var elRect = currentElement.getBoundingClientRect()
+
+
+        coords.x = Math.round(mouseX - elRect.left)
+        coords.y = Math.round(mouseY - elRect.top) + (window.pageYOffset / i) * -1
+
+        x = (coords.x) / moveRatio
+        y = (coords.y + window.pageYOffset * -1) / moveRatio
+
+        var degX = (x + y * -1) / 200
+        var degY = (x + y * 1) / 200
+
+        translate(currentElement, x, y, degX, degY)
+
+      }
+      i = 0
+      requestAnimationFrame(animate)
+    }
+
+    animate()
+
+
+
+
+
+  })
+})();
+</script>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -88,86 +161,11 @@
 
 </script>
 
-<!--<script src="javascripts/tweenlite.min.js"></script>
+<script src="javascripts/tweenlite.min.js"></script>
 <script src="javascripts/js/delaunay.js"></script>
 <script src="javascripts/js/raf.js"></script>
-<script src="javascripts/js/header.js"></script>-->
-<script src="bower_components/sine-waves/sine-waves.js"></script>
-<script>
+<script src="javascripts/js/header.js"></script>
 
-  var canvasEl = document.getElementById('waves')
-  var wavesEl = document.getElementById('waves-placeholder')
-  var canvasW = wavesEl.offsetWidth
-  var canvasH = wavesEl.offsetHeight
-  var mouseX = 1
-  var mouseY = 1
-  
-  document.addEventListener('mousemove', function(e) {
-    mouseX = e.pageX
-    mouseY = e.pageY
-  })
-
-  var waves = new SineWaves({
-  // Canvas Element
-  el: canvasEl,
-
-  // General speed of entire wave system
-  speed: 2,
-
-  // How many degress should we rotate all of the waves
-  rotate: 0,
-
-  // Ease function from left to right
-   ease: 'SineInOut',
-
-  // Specific how much the width of the canvas the waves should be
-  // This can either be a number or a percent
-  waveWidth: 100,
-
-  width: canvasW,
-  height: canvasH,
-
-  // An array of wave options
-  waves: [
-    {
-      timeModifier: 1,
-      lineWidth: 9,
-      amplitude: -40,
-      wavelength: 30,
-      strokeStyle: '#444', // Stroke color and opacity
-    },
-    {
-      timeModifier: 3,
-      lineWidth: 1,
-      amplitude: -40,
-      wavelength: 20,
-      strokeStyle: 'magenta', // Stroke color and opacity
-    },
-    {
-      timeModifier: 2,
-      lineWidth: 1,
-      amplitude: -80,
-      wavelength: 80,
-      strokeStyle: 'cyan', // Stroke color and opacity
-    },
-  ],
-
-  // Perform any additional initializations here
-  initialize: function (){
-  },
-
-  // This function is called whenver the window is resized
-  resizeEvent: function() {
-
-    // // Here is an example on how to create a gradient stroke
-    // var gradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
-    // gradient.addColorStop(0,"rgba(0, 0, 0, 0)");
-    // gradient.addColorStop(0.5,"rgba(255, 255, 255, 0.5)");
-    // gradient.addColorStop(1,"rgba(0, 0, 0, 0)");
-    
-  }
-});
-</script>
 
 </body>
 </html>
