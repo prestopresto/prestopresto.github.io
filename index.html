@@ -35,11 +35,10 @@
 
   <div class="pst-root">   
     <section class="pst-hero">
-      <!--<div class="pst-px"><canvas id="canvas"></canvas></div>-->
-      <div class="pst-svg-pattern--green" style="z-index:-1"></div>
+      <div class="pst-hero-bubble"></div>
       <h1 class="pst-hero__title">
         presto
-        <span>we make design &amp; development</span>
+        <span>we design and build mobile &amp; digital apps</span>
       </h1>
 
     </section>
@@ -63,7 +62,7 @@
           Design &amp; develop digital products.
           We help brands to build apps and websites that deliver a meaningful
           experience to the user.<br/>
-          We're specialized in brand identities, interface design, front-end development and digital strategy.
+          We specialize in brand identities, mobile apps, interface design, front-end development and hardware products.
         </p>
       </section>
     </div>
@@ -88,66 +87,31 @@
 <script>
 (function() {
   document.addEventListener('DOMContentLoaded', function() {
+
+    var hero = document.querySelector('.pst-hero')
+
+    // bg/fg
+    var colors = [
+      ['#5d2b86', '#07d0d1'],
+      ['#4b3deb', '#ffde35'],
+      ['#e85d66', '#84fffe'],
+      ['#1ec7ff', '#ca4bbd'],
+    ]
+    var idx = 0
+    var currentPalette
+    var stepAnimation = function() {
+      setTimeout(function() {
+        idx = idx + 1 < colors.length ? idx+1 : 0
+        currentPalette = colors[idx]
+        hero.style.backgroundColor = currentPalette[0]
+        hero.style.color = currentPalette[1]
+        stepAnimation()
+      }, 1000)
+    }
+    stepAnimation()
+  })    
     
-    var pxElements = document.querySelectorAll('.pst-px')
-    var moveRatio = 20
-    var mouseX = 0
-    var mouseY = 0
-    var elLength = pxElements.length
-    var i = 0
-
-    function translate(el, x, y, degX, degY) {
-      //el.style.transform = 'translate3d('+x+'px, '+y+'px, 0px)'
-      el.style.transform = 'translate3d('+x+'px, '+y+'px, 0px) rotateX('+degX+'deg) rotateY('+degY+'deg)'
-    }
-
-    function setOpacity(el, opacity) {
-      el.style.opacity = opacity
-    }
-
-    var coords = { x: 0, y: 0}
-
-    document.addEventListener('mousemove', function(ev) {
-      mouseX = ev.clientX
-      mouseY = ev.clientY
-    })
-
-    function moveChildren(elements) {
-
-    }
-
-    function animate(elements) {
-      elements || (elements = pxElements)
-      for(; i < elLength; i++) {
-        var x, y, z
-        var currentElement = pxElements[i]
-        var elRect = currentElement.getBoundingClientRect()
-
-
-        coords.x = Math.round(mouseX - elRect.left)
-        coords.y = Math.round(mouseY - elRect.top) + (window.pageYOffset / i) * -1
-
-        x = (coords.x) / moveRatio
-        y = (coords.y + window.pageYOffset * -1) / moveRatio
-
-        var degX = (x + y * -1) / 200
-        var degY = (x + y * 1) / 200
-
-        translate(currentElement, x, y, degX, degY)
-
-      }
-      i = 0
-      requestAnimationFrame(animate)
-    }
-
-    animate()
-
-
-
-
-
-  })
-})();
+})()
 </script>
 
 <script>
@@ -160,11 +124,6 @@
   ga('send', 'pageview');
 
 </script>
-
-<script src="javascripts/tweenlite.min.js"></script>
-<script src="javascripts/js/delaunay.js"></script>
-<script src="javascripts/js/raf.js"></script>
-<script src="javascripts/js/header.js"></script>
 
 
 </body>

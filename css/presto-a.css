@@ -140,7 +140,7 @@ a:link {
 }
 
 .pst-col--turqoise {
-  background-color: #2CB294;
+  background-color: #07d0d1;
 }
 
 .pst-svg-pattern {
@@ -176,19 +176,30 @@ a:link {
 
 @media screen and (min-width:980px) {
   .pst-flex--row-container {
-    display: flex;
+    /*display: flex;*/
     max-width: 1140px;
     margin: 0 auto;
   }
 
   .pst-col--50 {
-    width: 50%;
+    /*width: 50%;*/
     min-height: 50vh;
   }
 
   .pst-section {
     padding: 6em 6em;
   }
+}
+
+.pst-hero-bubble {
+  position:absolute;
+  font-size: 480px;
+  width: 1em;
+  height: 1em;
+  background: rgba(255, 255, 255, .25);
+  border-radius: 50%;
+  top: -.5em;
+  left: -.5em;
 }
 
 .pst-section__text {
@@ -199,12 +210,12 @@ a:link {
 .pst-section__title {
   font-size: 48px;
   font-weight: 800;
-  color: #2CB294;
+  color: #ca4bbd;
 }
 
 
 .pst-founders-section {
-  border-right: 1px solid #f3f3f3;
+  
 }
 
 .pst-founders-section .pst-section__title {
@@ -265,7 +276,7 @@ a:link {
 
 /* colors */
 .pst-turqoise {
-  color: #2CB294;
+  color: #07d0d1;
 }
 
 .pst-purple {
