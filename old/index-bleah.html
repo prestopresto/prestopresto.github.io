@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" / >
+  <title>presto - a design &amp; development company</title>
+  <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/presto-d.css">
+  <meta name="viewport" content="initial-scale=1,width=device-width" />
+  <meta name="description" content="presto - a design & development company" />
+  <script type="text/javascript">
+  WebFontConfig = { fontdeck: { id: '59607' } };
+
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+    '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+  </script>
+</head>
+
+<body>
+
+  <div class="pst-navbar">
+    <a class="pst-logo">Presto</a>
+    <nav class="pst-navbar__nav">
+      <a href="#company">company</a>
+      <a href="#contacts">contacts</a>
+    </nav>
+  </div>
+
+    <section class="pst-hero">
+      <div class="pst-hero__header">
+        <h1 class="pst-hero__title">
+          presto
+        </h1>
+      </div>
+      <div class="pst-hero__art">
+        <canvas id="waves"></canvas>
+        <div id="waves-placeholder"></div>
+      </div>
+    </section>
+
+    <section class="pst-contacts">
+      <a href="mailto:work@prestopresto.co"><strong>work@prestopresto.co</strong></a>
+    </section>
+  </div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67254367-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<!--<script src="javascripts/tweenlite.min.js"></script>
+<script src="javascripts/js/delaunay.js"></script>
+<script src="javascripts/js/raf.js"></script>
+<script src="javascripts/js/header.js"></script>-->
+<script src="bower_components/sine-waves/sine-waves.js"></script>
+<script>
+
+  var canvasEl = document.getElementById('waves')
+  var wavesEl = document.getElementById('waves-placeholder')
+  var canvasW = window.innerWidth
+  var canvasH = window.innerHeight
+  var mouseX = 1
+  var mouseY = 1
+  
+  document.addEventListener('mousemove', function(e) {
+    mouseX = e.pageX
+    mouseY = e.pageY
+  })
+
+  var waves = new SineWaves({
+  // Canvas Element
+  el: canvasEl,
+
+  // General speed of entire wave system
+  speed: 8,
+
+  // How many degress should we rotate all of the waves
+  rotate: 0,
+
+  // Ease function from left to right
+   ease: 'SineInOut',
+
+  // Specific how much the width of the canvas the waves should be
+  // This can either be a number or a percent
+  waveWidth: 10,
+
+  width: 320,
+  height: 200,
+
+  // An array of wave options
+  waves: [
+    {
+      timeModifier: 1,
+      lineWidth: 9,
+      amplitude: -40,
+      wavelength: 30,
+      strokeStyle: '#444', // Stroke color and opacity
+    },
+    {
+      timeModifier: 3,
+      lineWidth: 1,
+      amplitude: -40,
+      wavelength: 20,
+      strokeStyle: '#444', // Stroke color and opacity
+    },
+    {
+      timeModifier: 2,
+      lineWidth: 1,
+      amplitude: -80,
+      wavelength: 80,
+      strokeStyle: '#444', // Stroke color and opacity
+    },
+  ],
+
+  // Perform any additional initializations here
+  initialize: function (){
+  },
+
+  // This function is called whenver the window is resized
+  resizeEvent: function() {
+
+    // // Here is an example on how to create a gradient stroke
+    // var gradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
+    // gradient.addColorStop(0,"rgba(0, 0, 0, 0)");
+    // gradient.addColorStop(0.5,"rgba(255, 255, 255, 0.5)");
+    // gradient.addColorStop(1,"rgba(0, 0, 0, 0)");
+    
+  }
+});
+</script>
+
+</body>
+</html>

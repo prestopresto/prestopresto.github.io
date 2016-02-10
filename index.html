@@ -1,133 +1,176 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8" / >
-  <title>presto - a design &amp; development company</title>
-  <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="css/normalize.css">
-  <link rel="stylesheet" type="text/css" href="css/presto-a.css">
-  <meta name="viewport" content="initial-scale=1,width=device-width" />
-  <meta name="description" content="presto - a design & development company" />
-  <script type="text/javascript">
-  WebFontConfig = { fontdeck: { id: '59607' } };
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+    <title>Presto - we build interactive and digital products</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="theme-color" content="#9464EF">
+    <script type="text/javascript">
+    WebFontConfig = { fontdeck: { id: '59607' } };
 
-  (function() {
-    var wf = document.createElement('script');
-    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-    '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-    wf.type = 'text/javascript';
-    wf.async = 'true';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(wf, s);
-  })();
-  </script>
-</head>
-
-<body>
-
-  <div class="pst-navbar">
-    <a class="pst-logo">Presto</a>
-    <nav class="pst-navbar__nav">
-      <a href="#company">company</a>
-      <a href="#contacts">contacts</a>
-    </nav>
-  </div>
-
-  <div class="pst-root">   
-    <section class="pst-hero">
-      <div class="pst-hero-bubble"></div>
-      <h1 class="pst-hero__title">
-        presto
-        <span>we design and build apps &amp; digital products</span>
-      </h1>
-
-    </section>
-
-    <div class="pst-flex--row-container" id="company">
-      <section class="pst-col--50 pst-section pst-founders-section">
-        <h2 class="pst-section__title">Who we are</h2>
-        <p class="pst-section__text">
-          A group of developers, designers 
-          and strategists.<br/>
-          We launched together presto in
-          late 2015 after working for several
-          years for small-mid-big companies, 
-          startups and online brands.
-        </p>
-      </section>
-
-      <section class="pst-col--50 pst-section pst-what-section">
-        <h2 class="pst-section__title">What we do</h2>
-        <p class="pst-section__text">
-          Design &amp; develop digital products.
-          We help brands to build apps and websites that deliver a meaningful
-          experience to the user.<br/>
-          We specialize in brand identities, mobile apps, interface design, front-end development and hardware products.
-        </p>
-      </section>
-    </div>
-
-    <div class="pst-flex--row-container" id="contacts">
-      <div class="pst-section pst-col--50 pst-col--turqoise">
-      <div class="pst-svg-pattern"></div>
-        <h2 class="pst-section__title">
-          we make digital products<br/> 
-          for the internet folks<br/> 
-        </h2>
-      </div>
-      <section class="pst-col--50 pst-section pst-contact-section">
-        <h2 class="pst-section__title">Enquiries</h2><br/>
-        <p class="pst-section__text">
-          <a href="mailto:work@prestopresto.co" title="write us an email">work@prestopresto.co</a><br/>
-          <a href="http://twitter.com/wearepresto">@wearepresto</a>
-        </p>
-      </section>
-    </div>
-
-
-</div>
-
-<script>
-(function() {
-  document.addEventListener('DOMContentLoaded', function() {
-
-    var hero = document.querySelector('.pst-hero')
-
-    // bg/fg
-    var colors = [
-      ['#5d2b86', '#07d0d1'],
-      ['#4b3deb', '#ffde35'],
-      ['#e85d66', '#84fffe'],
-      ['#1ec7ff', '#ca4bbd'],
-    ]
-    var idx = 0
-    var currentPalette
-    var stepAnimation = function() {
-      setTimeout(function() {
-        idx = idx + 1 < colors.length ? idx+1 : 0
-        currentPalette = colors[idx]
-        hero.style.backgroundColor = currentPalette[0]
-        hero.style.color = currentPalette[1]
-        stepAnimation()
-      }, 1000)
-    }
-    stepAnimation()
-  })    
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+    </script>
     
-})()
-</script>
+		<style>
+			body {
+				margin: 0px;
+				overflow: hidden;
+				font-family: apercu, '-apple-system', sans-serif;	
+				color: #444;
+        -webkit-font-smoothing: antialiased;
+			}
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+			.ps-hero {
+				z-index: 1;
+        position: relative;
+				display: flex;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 2em;
+			}
 
-  ga('create', 'UA-67254367-1', 'auto');
-  ga('send', 'pageview');
+      @media screen and (min-width: 768px) {
+        .ps-hero {
+          padding-left: 4em;  
+        }
+      }
 
-</script>
+			.ps-contacts {
+				position: absolute;
+				z-index: 1;
+				bottom: 1em;
+				right: 1em;
+			}
 
+			.ps-contacts a {
+				font-size: 2em;
+				text-decoration: none;
+				color: #8853ff;
+				font-weight: 100;
+			}
+			
+			.ps-hero__title,
+			.ps-hero__subtitle {
+				margin: 0;
+				line-height: 1;
+			}
 
-</body>
+			.ps-hero__title {
+				color: #fff;
+				font-weight: 700;
+        font-size: 1em;
+			}
+
+			.ps-hero__subtitle {
+        margin-top: 1em;
+				font-size: 1.5em;
+				max-width: 320px;
+				line-height: 1.2;
+				color: #fafafa;
+        font-weight: 100;
+			}
+
+      .ps--c {
+        display: inline-block;
+        transform: scaleX(-1);
+        position: relative;
+        left: -.215em;
+      }
+
+      .ps-separator {
+        display: inline-block;
+        width: 40px;
+        height: 1px;
+        margin: 2em 0;
+        background: rgba(255, 255, 255, .125);
+      }
+
+			canvas {
+				position: fixed;
+				top: 0;
+			}
+      
+      a:link,
+      a:visited {
+        color: #ababab;
+      }
+		</style>
+	</head>
+	<body>
+
+		<div class="ps-hero">
+      <h1 class="ps-hero__title">Presto</h1>
+      <i class="ps-separator"></i>
+			<h2 class="ps-hero__subtitle">
+        We build interactive,
+        rich and unique digital products, for mobile &amp; the web
+      </h2>
+      <p>
+      <a href="mailto:info@prestopresto.co">info@prestopresto.co</a>
+      </p>
+		</div>
+
+		<script type="text/javascript">
+    WebFontConfig = { fontdeck: { id: '59607' } };
+
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+    </script>
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-41590826-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    <!--threejs stuff-->
+		<script src="js/three.min.js"></script>
+		<script src="js/CopyShader.js"></script>
+		<!--<script src="js/BokehShader.js"></script>-->
+		<!--<script src="js/DigitalGlitch.js"></script>-->
+    <script src="js/BleachBypassShader.js"></script>
+    <script src="js/BlendShader.js"></script>
+    <script src="js/FXAAShader.js"></script>
+    <script src="js/HorizontalTiltShiftShader.js"></script>
+    <script src="js/VerticalTiltShiftShader.js"></script>
+    <script src="js/TriangleBlurShader.js"></script>
+    <script src="js/VignetteShader.js"></script>
+    <script src="js/ConvolutionShader.js"></script>
+		<script src="js/DotScreenShader.js"></script>
+		<script src="js/RGBShiftShader.js"></script>
+		<script src="js/EffectComposer.js"></script>
+		<script src="js/RenderPass.js"></script>
+    <script src="js/BloomPass.js"></script>
+		<script src="js/MaskPass.js"></script>
+		<script src="js/ShaderPass.js"></script>
+		<!--<script src="js/GlitchPass.js"></script>-->
+		<!--<script src="js/BokehPass.js"></script>-->
+
+		<script src="js/main.js"></script>
+
+	
+
+	</body>
 </html>
