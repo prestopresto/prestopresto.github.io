@@ -20,7 +20,12 @@
   var SCREEN_HEIGHT = window.innerHeight
   var windowHalfX = SCREEN_WIDTH / 2;
   var windowHalfY = SCREEN_HEIGHT / 2;
-
+  var colors = [
+    0xe6fcff,
+    0xC96868,
+    0xC1E8DA,
+    0x866770,
+  ]
   clock = new THREE.Clock();
   var time, delta;
 
@@ -47,14 +52,17 @@
 
   function draw() {
     
-    var geometry = new THREE.SphereGeometry( 1, 1, 1 );
+    
 
     //GENERATE CENTER OBJECTS
     for ( var i = 0; i < 120; i ++ ) {
+      var geometry = new THREE.SphereGeometry( 1, 1, 1 );
+      var randColorIdx = parseInt(Math.random() * colors.length+1)
       var material = new THREE.MeshLambertMaterial( { 
-      wireframe: true,//Boolean(parseInt(Math.random() * 1)),
+      ///wireframe: true,
+      wireframe: Boolean(parseInt(Math.random() * 4)),
       wireframeLinewidth: 0.1,
-      color: 0xe6fcff, //0x8853ff, 
+      color: colors[randColorIdx],//0xe6fcff, //0x8853ff, 
       //vertexColors: THREE.VertexColors,
       shading: THREE.FlatShading
     });
