@@ -10,9 +10,11 @@
   var clock;
   var effect;
   var targetRotation = 0;
+  var targetRotationX = 0;
+  var targetRotationY = 0;
   var targetRotationOnMouseDown = 0;
   var targetReverse = 0;
-  var mouseX = 0;
+  var mouseX = 0, mouseY = 0;
   var mouseXOnMouseDown = 0;
   var SCREEN_WIDTH = window.innerWidth
   var SCREEN_HEIGHT = window.innerHeight
@@ -46,16 +48,16 @@
   function draw() {
     
     var geometry = new THREE.SphereGeometry( 1, 1, 1 );
-    var material = new THREE.MeshLambertMaterial( { 
-      wireframe: new Boolean(parseInt(Math.random() * 2)),
+
+    //GENERATE CENTER OBJECTS
+    for ( var i = 0; i < 120; i ++ ) {
+      var material = new THREE.MeshLambertMaterial( { 
+      wireframe: true,//Boolean(parseInt(Math.random() * 1)),
       wireframeLinewidth: 0.1,
       color: 0xe6fcff, //0x8853ff, 
       //vertexColors: THREE.VertexColors,
       shading: THREE.FlatShading
     });
-
-    //GENERATE CENTER OBJECTS
-    for ( var i = 0; i < 120; i ++ ) {
       var mesh = new THREE.Mesh( geometry, material );
       mesh.position.set( Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5 ).normalize();
       mesh.position.multiplyScalar( Math.random() * 3000 );
@@ -108,8 +110,8 @@
     var hblur = new THREE.ShaderPass( THREE.HorizontalTiltShiftShader );
     var vblur = new THREE.ShaderPass( THREE.VerticalTiltShiftShader );
     
-    hblur.uniforms[ 'h' ].value = 4 / SCREEN_WIDTH;
-    vblur.uniforms[ 'v' ].value = 4 / SCREEN_HEIGHT;
+    hblur.uniforms[ 'h' ].value = 3 / window.innerWidth;
+    vblur.uniforms[ 'v' ].value = 3 / window.innerHeight;
 
     //var effectBloom = new THREE.BloomPass(0.3);
     //effectBloom.renderToScreen = true
@@ -124,9 +126,7 @@
     composer.addPass( hblur );
     composer.addPass( vblur );
     
-    document.addEventListener( 'mousedown', onDocumentMouseDown, false );
     document.addEventListener( 'mousemove', onDocumentMouseMove, false );
-    document.addEventListener( 'touchstart', onDocumentTouchStart, false );
     document.addEventListener( 'touchmove', onDocumentTouchMove, false );
     window.addEventListener( 'resize', onWindowResize, false );
 
@@ -142,51 +142,12 @@
 
 
   //EVENTS
-  function onDocumentMouseDown( event ) {
-
-    event.preventDefault();
-    
-    document.addEventListener( 'mouseup', onDocumentMouseUp, false );
-    document.addEventListener( 'mouseout', onDocumentMouseOut, false );
-    mouseXOnMouseDown = event.clientX - windowHalfX;
-    targetRotationOnMouseDown = targetRotation;
-
-  }
-
   function onDocumentMouseMove( event ) {
     mouseX = event.clientX - windowHalfX;
+    mouseY = event.clientY - windowHalfY;
     // effect.uniforms[ 'amount' ].value = 0.02;
-    targetRotation = targetRotationOnMouseDown + ( mouseX - mouseXOnMouseDown ) * 0.0002;
-  }
-
-  function onDocumentMouseUp( event ) {
-
-    // // effect.uniforms[ 'amount' ].value = 0.002;
-    // document.removeEventListener( 'mousemove', onDocumentMouseMove, false );
-    // document.removeEventListener( 'mouseup', onDocumentMouseUp, false );
-    // document.removeEventListener( 'mouseout', onDocumentMouseOut, false );
-    // targetRotation = 0;
-  }
-
-  function onDocumentMouseOut( event ) {
-
-    document.removeEventListener( 'mousemove', onDocumentMouseMove, false );
-    document.removeEventListener( 'mouseup', onDocumentMouseUp, false );
-    document.removeEventListener( 'mouseout', onDocumentMouseOut, false );
-    // effect.uniforms[ 'amount' ].value = 0.002;
-    targetRotation = 0;
-    console.log("out off window");
-  }
-
-  function onDocumentTouchStart( event ) {
-
-    if ( event.touches.length === 1 ) {
-
-      event.preventDefault();
-      mouseXOnMouseDown = event.touches[ 0 ].pageX - windowHalfX;
-      targetRotationOnMouseDown = targetRotation;
-    }
-
+    targetRotationX = mouseX * 0.0002;
+    targetRotationY = mouseY * 0.0002;
   }
 
   function onDocumentTouchMove( event ) {
@@ -194,8 +155,9 @@
     if ( event.touches.length === 1 ) {
       event.preventDefault();
       mouseX = event.touches[ 0 ].pageX - windowHalfX;
-      targetRotation = targetRotationOnMouseDown + ( mouseX - mouseXOnMouseDown ) * 0.05;
-
+      mouseY = event.touches[ 0 ].pageY - windowHalfY;
+      targetRotationX = mouseX * 0.005;
+      targetRotationY = mouseY * 0.005;
     }
 
   }
@@ -208,8 +170,8 @@
     time = clock.getElapsedTime();    
 
     requestAnimationFrame( animate );
-    object.rotation.x += 0.001;
-    object.rotation.y += 0.001;
+    object.rotation.x += 0.01;
+    object.rotation.y += 0.01;
 
     render();
     
@@ -235,7 +197,8 @@
 
     counter += 2;
     //effect.uniforms[ 'amount' ].value = 0.001;
-    object.rotation.x += ( targetRotation - object.rotation.x ) * 0.05;
+    object.rotation.y += ( targetRotationX - object.rotation.y ) * 0.05;
+    object.rotation.x += ( targetRotationY - object.rotation.x ) * 0.05;
     //effect.uniforms[ 'amount' ].value += targetRotation/500 ;
   }
 
