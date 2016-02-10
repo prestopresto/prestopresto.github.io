@@ -178,12 +178,12 @@
     time = clock.getElapsedTime();    
 
     requestAnimationFrame( animate );
-    object.rotation.x += 0.01;
-    object.rotation.y += 0.01;
+    object.rotation.x += 0.001;
+    object.rotation.y += 0.001;
 
     render();
     
-    if(parseInt(time) % 3 == 0) {
+    if(parseInt(time) % parseInt(Math.random() * 15) == 0) {
       animateCamera()
     }
 
@@ -206,7 +206,7 @@
     counter += 2;
     //effect.uniforms[ 'amount' ].value = 0.001;
     object.rotation.y += ( targetRotationX - object.rotation.y ) * 0.05;
-    object.rotation.x += ( targetRotationY - object.rotation.x ) * 0.05;
+    //object.rotation.x += ( targetRotationY - object.rotation.x ) * 0.05;
     //effect.uniforms[ 'amount' ].value += targetRotation/500 ;
   }
 
