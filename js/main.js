@@ -21,10 +21,10 @@
   var windowHalfX = SCREEN_WIDTH / 2;
   var windowHalfY = SCREEN_HEIGHT / 2;
   var colors = [
-    0xe6fcff,
-    0xC96868,
-    0xC1E8DA,
-    0x866770,
+    0xE04B5A,
+    0xE49756,
+    0x5B305A,
+    0x9A4C68,
   ]
   clock = new THREE.Clock();
   var time, delta;
@@ -57,7 +57,7 @@
     //GENERATE CENTER OBJECTS
     for ( var i = 0; i < 120; i ++ ) {
       var geometry = new THREE.SphereGeometry( 1, 1, 1 );
-      var randColorIdx = parseInt(Math.random() * colors.length+1)
+      var randColorIdx = parseInt(Math.random() * colors.length)
       var material = new THREE.MeshLambertMaterial( { 
       ///wireframe: true,
       wireframe: Boolean(parseInt(Math.random() * 4)),
